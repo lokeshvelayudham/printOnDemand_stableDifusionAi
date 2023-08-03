@@ -4,11 +4,11 @@ import base64
 import os
 
 # Set your API credentials 
-access_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzN2Q0YmQzMDM1ZmUxMWU5YTgwM2FiN2VlYjNjY2M5NyIsImp0aSI6ImQwN2M5ZDUxNjBmZWFhMmRiZTg4NzliNTlmMjA3ZDYwYmQ3MTliOTA5MTZlMDQ1MjJlYWEwYmY4NzI4MmRhYTJkYTRlMzY2ZGUzNzQwOTUwIiwiaWF0IjoxNjkwODE4MDkxLjkwNTIxOCwibmJmIjoxNjkwODE4MDkxLjkwNTIyLCJleHAiOjE3MjI0NDA0OTEuODk5MjI3LCJzdWIiOiIxNDU3Nzc0NCIsInNjb3BlcyI6WyJzaG9wcy5tYW5hZ2UiLCJzaG9wcy5yZWFkIiwiY2F0YWxvZy5yZWFkIiwib3JkZXJzLnJlYWQiLCJvcmRlcnMud3JpdGUiLCJwcm9kdWN0cy5yZWFkIiwicHJvZHVjdHMud3JpdGUiLCJ3ZWJob29rcy5yZWFkIiwid2ViaG9va3Mud3JpdGUiLCJ1cGxvYWRzLnJlYWQiLCJ1cGxvYWRzLndyaXRlIiwicHJpbnRfcHJvdmlkZXJzLnJlYWQiXX0.ATGgcSR-IUGdj6qbx0XztGpuKJ-cFUc5y2w4A7bug9NUMcrIphmoOIU9yjLp4JR5IZ_G94E8HKQUtcDqH-k"
+access_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzN2Q0YmQzMDM1ZmUxMWU5YTgwM2FiN2VlYjNjY2M5NyIsImp0aSI6IjMzM2Q1YWY5ODA3MWU1NWQ4MmMxMjY3MWQ3ZWMxOThjMzg5MGEwZDgwODY3ZWU5MDBkZjY1Y2E4NjcwNjAyMDQzYjUyZjkwZWY4MWVhMzAzIiwiaWF0IjoxNjkxMDcwMzE0LjQ0MjkyMSwibmJmIjoxNjkxMDcwMzE0LjQ0MjkyNiwiZXhwIjoxNzIyNjkyNzE0LjQzNDk1NSwic3ViIjoiMTQ1ODUyNDQiLCJzY29wZXMiOlsic2hvcHMubWFuYWdlIiwic2hvcHMucmVhZCIsImNhdGFsb2cucmVhZCIsIm9yZGVycy5yZWFkIiwib3JkZXJzLndyaXRlIiwicHJvZHVjdHMucmVhZCIsInByb2R1Y3RzLndyaXRlIiwid2ViaG9va3MucmVhZCIsIndlYmhvb2tzLndyaXRlIiwidXBsb2Fkcy5yZWFkIiwidXBsb2Fkcy53cml0ZSIsInByaW50X3Byb3ZpZGVycy5yZWFkIl19.AN-RA68Vcl4JJY4Y0cRhRT7phRrX9ldwZzeDR0HPx4YtA7nHjvMYuYjKC3KsoU4WKIRd9ptzrrTx9rV9TXc"
 
-# Find your shop ID by running this: curl -X GET https://api.printify.com/v1/shops.json --header "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzN2Q0YmQzMDM1ZmUxMWU5YTgwM2FiN2VlYjNjY2M5NyIsImp0aSI6ImQwN2M5ZDUxNjBmZWFhMmRiZTg4NzliNTlmMjA3ZDYwYmQ3MTliOTA5MTZlMDQ1MjJlYWEwYmY4NzI4MmRhYTJkYTRlMzY2ZGUzNzQwOTUwIiwiaWF0IjoxNjkwODE4MDkxLjkwNTIxOCwibmJmIjoxNjkwODE4MDkxLjkwNTIyLCJleHAiOjE3MjI0NDA0OTEuODk5MjI3LCJzdWIiOiIxNDU3Nzc0NCIsInNjb3BlcyI6WyJzaG9wcy5tYW5hZ2UiLCJzaG9wcy5yZWFkIiwiY2F0YWxvZy5yZWFkIiwib3JkZXJzLnJlYWQiLCJvcmRlcnMud3JpdGUiLCJwcm9kdWN0cy5yZWFkIiwicHJvZHVjdHMud3JpdGUiLCJ3ZWJob29rcy5yZWFkIiwid2ViaG9va3Mud3JpdGUiLCJ1cGxvYWRzLnJlYWQiLCJ1cGxvYWRzLndyaXRlIiwicHJpbnRfcHJvdmlkZXJzLnJlYWQiXX0.ATGgcSR-IUGdj6qbx0XztGpuKJ-cFUc5y2w4A7bug9NUMcrIphmoOIU9yjLp4JR5IZ_G94E8HKQUtcDqH-k"
+# Find your shop ID by running this: curl -X GET https://api.printify.com/v1/shops.json --header "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzN2Q0YmQzMDM1ZmUxMWU5YTgwM2FiN2VlYjNjY2M5NyIsImp0aSI6IjMzM2Q1YWY5ODA3MWU1NWQ4MmMxMjY3MWQ3ZWMxOThjMzg5MGEwZDgwODY3ZWU5MDBkZjY1Y2E4NjcwNjAyMDQzYjUyZjkwZWY4MWVhMzAzIiwiaWF0IjoxNjkxMDcwMzE0LjQ0MjkyMSwibmJmIjoxNjkxMDcwMzE0LjQ0MjkyNiwiZXhwIjoxNzIyNjkyNzE0LjQzNDk1NSwic3ViIjoiMTQ1ODUyNDQiLCJzY29wZXMiOlsic2hvcHMubWFuYWdlIiwic2hvcHMucmVhZCIsImNhdGFsb2cucmVhZCIsIm9yZGVycy5yZWFkIiwib3JkZXJzLndyaXRlIiwicHJvZHVjdHMucmVhZCIsInByb2R1Y3RzLndyaXRlIiwid2ViaG9va3MucmVhZCIsIndlYmhvb2tzLndyaXRlIiwidXBsb2Fkcy5yZWFkIiwidXBsb2Fkcy53cml0ZSIsInByaW50X3Byb3ZpZGVycy5yZWFkIl19.AN-RA68Vcl4JJY4Y0cRhRT7phRrX9ldwZzeDR0HPx4YtA7nHjvMYuYjKC3KsoU4WKIRd9ptzrrTx9rV9TXc"
 
-shop_id = "10877841"
+shop_id = "10887629"
 
 # Set the URL for the API endpoints
 base_url = "https://api.printify.com/v1"
@@ -38,7 +38,7 @@ for idx, row in image_df.iterrows():
     response = requests.post(upload_url, headers=headers, json=data)
     image_id = response.json()["id"]
 
-    # To change the print object, use this to find the variant id curl -X GET "https://api.printify.com/v1/catalog/blueprints/1098/print_providers/228/variants.json" "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzN2Q0YmQzMDM1ZmUxMWU5YTgwM2FiN2VlYjNjY2M5NyIsImp0aSI6ImQwN2M5ZDUxNjBmZWFhMmRiZTg4NzliNTlmMjA3ZDYwYmQ3MTliOTA5MTZlMDQ1MjJlYWEwYmY4NzI4MmRhYTJkYTRlMzY2ZGUzNzQwOTUwIiwiaWF0IjoxNjkwODE4MDkxLjkwNTIxOCwibmJmIjoxNjkwODE4MDkxLjkwNTIyLCJleHAiOjE3MjI0NDA0OTEuODk5MjI3LCJzdWIiOiIxNDU3Nzc0NCIsInNjb3BlcyI6WyJzaG9wcy5tYW5hZ2UiLCJzaG9wcy5yZWFkIiwiY2F0YWxvZy5yZWFkIiwib3JkZXJzLnJlYWQiLCJvcmRlcnMud3JpdGUiLCJwcm9kdWN0cy5yZWFkIiwicHJvZHVjdHMud3JpdGUiLCJ3ZWJob29rcy5yZWFkIiwid2ViaG9va3Mud3JpdGUiLCJ1cGxvYWRzLnJlYWQiLCJ1cGxvYWRzLndyaXRlIiwicHJpbnRfcHJvdmlkZXJzLnJlYWQiXX0.ATGgcSR-IUGdj6qbx0XztGpuKJ-cFUc5y2w4A7bug9NUMcrIphmoOIU9yjLp4JR5IZ_G94E8HKQUtcDqH-k"
+    # To change the print object, use this to find the variant id curl -X GET "https://api.printify.com/v1/catalog/blueprints/1098/print_providers/228/variants.json" "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzN2Q0YmQzMDM1ZmUxMWU5YTgwM2FiN2VlYjNjY2M5NyIsImp0aSI6IjMzM2Q1YWY5ODA3MWU1NWQ4MmMxMjY3MWQ3ZWMxOThjMzg5MGEwZDgwODY3ZWU5MDBkZjY1Y2E4NjcwNjAyMDQzYjUyZjkwZWY4MWVhMzAzIiwiaWF0IjoxNjkxMDcwMzE0LjQ0MjkyMSwibmJmIjoxNjkxMDcwMzE0LjQ0MjkyNiwiZXhwIjoxNzIyNjkyNzE0LjQzNDk1NSwic3ViIjoiMTQ1ODUyNDQiLCJzY29wZXMiOlsic2hvcHMubWFuYWdlIiwic2hvcHMucmVhZCIsImNhdGFsb2cucmVhZCIsIm9yZGVycy5yZWFkIiwib3JkZXJzLndyaXRlIiwicHJvZHVjdHMucmVhZCIsInByb2R1Y3RzLndyaXRlIiwid2ViaG9va3MucmVhZCIsIndlYmhvb2tzLndyaXRlIiwidXBsb2Fkcy5yZWFkIiwidXBsb2Fkcy53cml0ZSIsInByaW50X3Byb3ZpZGVycy5yZWFkIl19.AN-RA68Vcl4JJY4Y0cRhRT7phRrX9ldwZzeDR0HPx4YtA7nHjvMYuYjKC3KsoU4WKIRd9ptzrrTx9rV9TXc"
 #    https://api.printify.com/v1/catalog/blueprints/6/print_providers/270/variants.json
    # Current settings are for wall art
    
@@ -54,16 +54,21 @@ for idx, row in image_df.iterrows():
                 "id": 12126,  # Replace with the actual variant ID
                 "price": 3999,
                 "is_enabled": True
+            },
+            {
+                "id": 12100,
+                "price": 3999,
+                "is_enabled": True
             }
         ],
         "print_areas": [
             {
-                "variant_ids": [82064],  # Replace with the actual variant ID
+                "variant_ids": [12126,12100],  # Replace with the actual variant ID
                 "placeholders": [
                     {
                         "position": "front",
-                        "height": 3761,
-                        "width": 3319,
+                        "height": 5100,
+                        "width": 4500,
                         "images": [
                             {
                                 "id": image_id,
